@@ -13,11 +13,20 @@ public class BoardService {
 
     //목록 보기
     @Transactional(readOnly = true)
-    public Iterable<Board> findAll() {
+    public Iterable<Board> findAllPost() {
         return boardRepository.findAll();
     }
 
     //상세 보기
+    @Transactional
+    public Board findById(Long id) {
+        return boardRepository.findById(id).orElse(null);
+    }
+
+    public void updateBoard(Board board) {
+        boardRepository.save(board);
+    }
+
 
     //글 쓰기 --요청 2개
 
