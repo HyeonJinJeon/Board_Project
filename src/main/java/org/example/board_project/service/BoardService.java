@@ -3,6 +3,10 @@ package org.example.board_project.service;
 import lombok.RequiredArgsConstructor;
 import org.example.board_project.domain.Board;
 import org.example.board_project.repository.BoardRepository;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -13,8 +17,10 @@ public class BoardService {
 
     //목록 보기
     @Transactional(readOnly = true)
-    public Iterable<Board> findAllPost() {
-        return boardRepository.findAll();
+    public Page<Board> findAllPost(Pageable pageable){
+        Pageable sortedByDescId = PageRequest.of(pageable.getPageNumber(), pageable.getPageSize(),
+                Sort.by(Sort.Direction.DESC,"id"));
+        return boardRepository.findAll(sortedByDescId);
     }
 
     //상세 보기
@@ -25,6 +31,19 @@ public class BoardService {
 
     public void updateBoard(Board board) {
         boardRepository.save(board);
+    }
+
+    public void saveBoard(Board board) {
+        boardRepository.save(board);
+    }
+
+    public boolean checkPassword(Long id, String password) {
+        Board board = boardRepository.findById(id).orElse(null);
+        return board != null && board.getPassword().equals(password);
+    }
+
+    public void deleteBoard(Board board) {
+        boardRepository.delete(board);
     }
 
 

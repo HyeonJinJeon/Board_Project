@@ -4,10 +4,11 @@ import lombok.*;
 import org.springframework.data.annotation.Id;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 @Getter
 @Setter
-@NoArgsConstructor
+//@NoArgsConstructor
 @AllArgsConstructor
 @ToString
 @EqualsAndHashCode
@@ -17,5 +18,12 @@ public class Board {
     private String name;
     private String title;
     private String content;
-    private LocalDate createdAt;
+    private LocalDateTime createdAt;
+    private LocalDateTime updatedAt;
+    private String password;
+
+    public Board() {
+        this.createdAt = LocalDateTime.now();
+        this.updatedAt = LocalDateTime.now();
+    }
 }

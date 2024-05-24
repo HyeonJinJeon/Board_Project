@@ -1,0 +1,109 @@
+/* 기본 스타일 초기화 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+body {
+    background-color: #f4f4f4;
+    padding: 20px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+thead {
+    background-color: #333;
+    color: #fff;
+}
+
+thead th {
+    padding: 10px;
+    text-align: left;
+}
+
+tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+tbody tr:hover {
+    background-color: #f1f1f1;
+}
+
+tbody td {
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+tbody td a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+tbody td a:hover {
+    text-decoration: underline;
+}
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.write-button {
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin-left: auto;
+}
+
+.write-button:hover {
+    background-color: #45a049;
+}
+
+/* 페이지네이션 스타일 */
+.pagination {
+    display: inline-block;
+    margin-top: 10px; /* 글쓰기 버튼과의 간격 조절 */
+}
+
+.pagination ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.pagination li {
+    display: inline;
+    margin-right: 5px;
+}
+
+.pagination li a {
+    text-decoration: none;
+    color: black;
+    padding: 8px 16px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+.pagination li a:hover {
+    background-color: #f2f2f2;
+}
